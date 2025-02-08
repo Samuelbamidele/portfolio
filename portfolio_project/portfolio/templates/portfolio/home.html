@@ -1,0 +1,175 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Portfolio</title>
+        <meta name="keywords" content="website development, embedded systems, electronics, solar installation, electrical installation">
+        <meta name="description" content="Learn more about Bamidele Samuel, a passionate professional with expertise in website development, electronics, and technology solutions.">
+        <meta name="author" content="Bamidele Samuel">
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+        </head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">Sam<span>Tech.</span></div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#blog">Blogs</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+
+    <!-- Home Section -->
+    <section class="home" id="home">
+        <div class="content">
+            <h1>Hi, my name is <br> <span>Bamidele Samuel</span></h1>
+            <p>I'm a <span id="dynamic-text"></span><span class="cursor">|</span></p>
+            <a href="#contact" class="btn">Hire Me</a>
+        </div>
+        <div class="image">
+            <img src="{% static 'images/bng.png' %}" alt="CEO image">
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="content">
+                <h2>About Me</h2>
+                <p>{{ about_me.content }}</p>
+                {% if about_me.cv_file %}
+                    <a href="{{ about_me.cv_file.url }}" class="btn">Download CV</a>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+    <section class="services" id="services">
+        <div class="container">
+            <h2>My Services</h2>
+            <p class="subheading">What I provide</p>
+            <div class="services-list">
+                <div class="service">
+                    <i class="icon">💻</i>
+                    <h3>Web development</h3>
+                    <p> I offer custom web development solutions that deliver great user experiences.</p>
+                </div>
+                <div class="service">
+                    <i class="icon">☁️</i>
+                    <h3>IoT Projects</h3>
+                    <p>Cloud-connected smart solutions for automation, embedded system, remote monitoring, and real-time data analysis.</p>
+                </div>
+                <div class="service">
+                    <i class="icon">💡</i>
+                    <h3>Solar Installation</h3>
+                    <p>Expert installation of solar energy systems for homes and businesses.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <h2>My Portfolio</h2>
+            <p class="subheading">Some of my recent works</p>
+            <div class="portfolio-list">
+                {% for item in portfolio_items %}
+                    <div class="portfolio-item">
+                        <img src="{{ item.image.url }}" alt="{{ item.title }}">
+                        <div class="overlay">
+                            <h3>{{ item.title }}</h3>
+                            <p>{{ item.description }}</p>
+                            {% if item.link %}
+                                <a href="{{ item.link }}" target="_blank">Read More</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="blog" id="blog">
+        <div class="container">
+            <h2>My Blogs</h2>
+            <p class="subheading">Explore my latest posts</p>
+            <div class="blog-container">
+                {% for post in blog_posts %}
+                    <div class="blog-card">
+                        <img src="{{ post.image.url }}" alt="{{ post.title }}">
+                        <div class="blog-content">
+                            <h3>{{ post.title }}</h3>
+                            <p>{{ post.content|truncatewords:20 }}</p>
+                            {% if post.read_more_link %}
+                                <a href="{{ post.read_more_link }}" class="read-more">Read More</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <p class="subheading">Get in touch</p>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <p>Feel free to reach out...</p>
+                    <ul>
+                        <li><strong>Name:</strong> Bamidele Samuel</li>
+                        <li><strong>Address:</strong> Lagos, Nigeria</li>
+                        <li><strong>Email:</strong> samuelbamidele301@gmail.com</li>
+                        <li><strong>Phone:</strong> +2348134523227</li>
+                    </ul>
+                </div>
+                <form action="#" method="post" class="contact-form">
+                    <div class="input-group">
+                        <input type="text" placeholder="Name" name="name" required>
+                        <input type="email" placeholder="Email" name="email" required>
+                    </div>
+                    <input type="text" placeholder="Subject" name="subject" required>
+                    <textarea placeholder="Message" rows="5" name="message" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+            <div class="social-media">
+                <a href="https://wa.me/2348134523227" target="_blank" class="social-icon">
+                    <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="WhatsApp">
+                </a>
+                <a href="https://web.facebook.com/SAMTECH.hub.01" target="_blank" class="social-icon">
+                    <img src="https://img.icons8.com/color/48/000000/facebook-new.png" alt="Facebook">
+                </a>
+                <a href="https://www.linkedin.com/in/bamidele-samuel-3a7812259/" target="_blank" class="social-icon">
+                    <img src="https://img.icons8.com/color/48/000000/linkedin.png" alt="LinkedIn">
+                </a>
+                <a href="https://www.instagram.com/bamidele953/" target="_blank" class="social-icon">
+                    <img src="https://img.icons8.com/color/48/000000/instagram.png" alt="LinkedIn">
+                </a>
+            </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="site-footer">
+        <p>&copy; <span id="currentYear"></span> SAMTECH. All Rights Reserved.</p>
+    </footer>
+     <!-- Link to JavaScript -->
+     <script src="{% static 'js/script.js' %}"></script>
+    <script>
+        const year = new Date().getFullYear();
+        document.getElementById('currentYear').textContent = year;
+    </script>
+</body>
+</html>
