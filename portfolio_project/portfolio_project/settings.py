@@ -40,8 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'portfolio',
+    'whitenoise.runserver_nostatic',  # Add this before staticfiles
 ]
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # Enables serving static files
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -49,8 +51,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    
 ]
-
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 ROOT_URLCONF = 'portfolio_project.urls'
 
 TEMPLATES = [
@@ -118,10 +121,17 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 # Static files (CSS, JavaScript, Images)
-STATIC_URL = 'static/'  # URL prefix for static files
-STATICFILES_DIRS = [BASE_DIR / "portfolio/static"]  # Point to app-specific static folder
-STATIC_ROOT = BASE_DIR / "staticfiles"  # For collectstatic in production
 
+
+STATIC_URL = '/static/'
+
+# Collect static files for production
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
+# Tell Django where to find static files inside your apps
+STATICFILES_DIRS = [
+    BASE_DIR / "portfolio/static",  # Your static folder inside 'portfolio' app
+]
 # Media files (optional)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
