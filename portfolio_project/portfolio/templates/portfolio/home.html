@@ -52,6 +52,8 @@
             </div>
         </div>
     </section>
+
+    <!--Services-->
     <section class="services" id="services">
         <div class="container">
             <h2>My Services</h2>
@@ -76,6 +78,7 @@
         </div>
     </section>
     <!-- Portfolio Section -->
+     <!--
     <section class="portfolio" id="portfolio">
         <div class="container">
             <h2>My Portfolio</h2>
@@ -95,9 +98,37 @@
                 {% endfor %}
             </div>
         </div>
-    </section>
+    </section> -->
 
-    <!-- Blog Section -->
+<!-- Portfolio Section -->
+<section class="portfolio" id="portfolio">
+    <div class="container">
+        <h2>My Portfolio</h2>
+        <p class="subheading">Some of my recent works</p>
+        <div class="portfolio-list">
+            {% for item in portfolio_items %}
+                <div class="portfolio-item">
+                    <img src="{{ item.image.url }}" alt="{{ item.title }}">
+                    <div class="overlay">
+                        <h3>{{ item.title }}</h3>
+                        <p>{{ item.description }}</p>
+                        {% if item.link %}
+                            <a href="{{ item.link }}" target="_blank">Read More</a>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="pagination-buttons">
+            <button id="prev-portfolio" class="btn">Previous</button>
+            <button id="next-portfolio" class="btn">Next</button>
+        </div>
+    </div>
+</section>
+
+     <!-- Blog Section -->
+<!-- 
+   
     <section class="blog" id="blog">
         <div class="container">
             <h2>My Blogs</h2>
@@ -118,6 +149,33 @@
             </div>
         </div>
     </section>
+-->{% load static %}
+<!-- Blog Section -->
+<section class="blog" id="blog">
+    <div class="container">
+        <h2>My Blogs</h2>
+        <p class="subheading">Explore my latest posts</p>
+        <div class="blog-container">
+            {% for post in blog_posts %}
+                <div class="blog-card">
+                    <img src="{{ post.image.url }}" alt="{{ post.title }}">
+                    <div class="blog-content">
+                        <h3>{{ post.title }}</h3>
+                        <p>{{ post.content|truncatewords:20 }}</p>
+                        {% if post.read_more_link %}
+                            <a href="{{ post.read_more_link }}" class="read-more">Read More</a>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="pagination-buttons">
+            <button id="prev-btn" class="btn">Previous</button>
+            <button id="next-btn" class="btn">Next</button>
+        </div>
+    </div>
+</section>
+
 
     <!-- Contact Section -->
     <section class="contact" id="contact">
