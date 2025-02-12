@@ -33,7 +33,7 @@ typeEffect();
 document.addEventListener('DOMContentLoaded', function() {
     // Get all blog cards as an array
     const posts = Array.from(document.querySelectorAll('.blog-card'));
-    const itemsPerPage = 3;   // Number of posts to display per page
+    const itemsPerPage = 2;   // Number of posts to display per page
     let currentPage = 0;      // Start with the first page
     const totalPages = Math.ceil(posts.length / itemsPerPage);
 
@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('DOMContentLoaded', function() {
     // Gather all portfolio items into an array
     const portfolioItems = Array.from(document.querySelectorAll('.portfolio-item'));
-    const itemsPerPage = 3;  // Number of portfolio items to show per page
+    const itemsPerPage = 2;  // Number of portfolio items to show per page
     let currentPage = 0;     // Start at the first page
     const totalPages = Math.ceil(portfolioItems.length / itemsPerPage);
 
