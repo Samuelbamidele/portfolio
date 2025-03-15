@@ -10,24 +10,26 @@
         <meta name="description" content="Learn more about Bamidele Samuel, a passionate professional with expertise in website development, electronics, and technology solutions.">
         <meta name="author" content="Bamidele Samuel">
         <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-        </head>
+    </head>
 <body>
     <!-- Header -->
-    <header class="header">
-        <div class="logo">Sam<span>Tech.</span></div>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#blog">Blogs</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    
+    <!-- Header -->
+<header class="header">
+    <div class="logo">Sam<span>Tech.</span></div>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#blog">Blogs</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <!--<li><a href="#contact" class="hire-me-btn">Hire Me</a></li> --><!-- New "Hire Me" button -->
+        </ul>
+    </nav>
+</header>
 
+    
     <!-- Home Section -->
     <section class="home" id="home">
         <div class="content">
@@ -53,7 +55,7 @@
         </div>
     </section>
 
-    <!--Services-->
+    <!-- Services -->
     <section class="services" id="services">
         <div class="container">
             <h2>My Services</h2>
@@ -61,28 +63,28 @@
             <div class="services-list">
                 <div class="service">
                     <i class="icon">💻</i>
-                    <h3>Web development</h3>
-                    <p> I offer custom web development solutions that deliver great user experiences.</p>
+                    <h3>Web Development</h3>
+                    <p>Custom web solutions for an exceptional user experience.</p>
                 </div>
                 <div class="service">
                     <i class="icon">☁️</i>
                     <h3>IoT Projects</h3>
-                    <p>Cloud-connected smart solutions for automation, embedded system, remote monitoring, and real-time data analysis.</p>
+                    <p>Smart automation, embedded systems, and real-time data solutions.</p>
                 </div>
                 <div class="service">
                     <i class="icon">💡</i>
                     <h3>Solar Installation</h3>
-                    <p>Expert installation of solar energy systems for homes and businesses.</p>
+                    <p>Reliable solar energy solutions for homes and businesses.</p>
                 </div>
             </div>
         </div>
     </section>
+
     <!-- Portfolio Section -->
-     <!--
     <section class="portfolio" id="portfolio">
         <div class="container">
             <h2>My Portfolio</h2>
-            <p class="subheading">Some of my recent works</p>
+            <p class="subheading">Recent Projects</p>
             <div class="portfolio-list">
                 {% for item in portfolio_items %}
                     <div class="portfolio-item">
@@ -91,48 +93,20 @@
                             <h3>{{ item.title }}</h3>
                             <p>{{ item.description }}</p>
                             {% if item.link %}
-                                <a href="{{ item.link }}" target="_blank">Read More</a>
+                                <a href="{{ item.link }}" target="_blank">View Project</a>
                             {% endif %}
                         </div>
                     </div>
                 {% endfor %}
             </div>
         </div>
-    </section> -->
+    </section>
 
-<!-- Portfolio Section -->
-<section class="portfolio" id="portfolio">
-    <div class="container">
-        <h2>My Portfolio</h2>
-        <p class="subheading">Some of my recent works</p>
-        <div class="portfolio-list">
-            {% for item in portfolio_items %}
-                <div class="portfolio-item">
-                    <img src="{{ item.image.url }}" alt="{{ item.title }}">
-                    <div class="overlay">
-                        <h3>{{ item.title }}</h3>
-                        <p>{{ item.description }}</p>
-                        {% if item.link %}
-                            <a href="{{ item.link }}" target="_blank">Read More</a>
-                        {% endif %}
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
-        <div class="pagination-buttons">
-            <button id="prev-portfolio" class="btn">Previous</button>
-            <button id="next-portfolio" class="btn">Next</button>
-        </div>
-    </div>
-</section>
-
-     <!-- Blog Section -->
-<!-- 
-   
+    <!-- Blog Section -->
     <section class="blog" id="blog">
         <div class="container">
             <h2>My Blogs</h2>
-            <p class="subheading">Explore my latest posts</p>
+            <p class="subheading">Latest Posts</p>
             <div class="blog-container">
                 {% for post in blog_posts %}
                     <div class="blog-card">
@@ -149,85 +123,41 @@
             </div>
         </div>
     </section>
--->{% load static %}
-<!-- Blog Section -->
-<section class="blog" id="blog">
-    <div class="container">
-        <h2>My Blogs</h2>
-        <p class="subheading">Explore my latest posts</p>
-        <div class="blog-container">
-            {% for post in blog_posts %}
-                <div class="blog-card">
-                    <img src="{{ post.image.url }}" alt="{{ post.title }}">
-                    <div class="blog-content">
-                        <h3>{{ post.title }}</h3>
-                        <p>{{ post.content|truncatewords:20 }}</p>
-                        {% if post.read_more_link %}
-                            <a href="{{ post.read_more_link }}" class="read-more">Read More</a>
-                        {% endif %}
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
-        <div class="pagination-buttons">
-            <button id="prev-btn" class="btn">Previous</button>
-            <button id="next-btn" class="btn">Next</button>
-        </div>
-    </div>
-</section>
-
 
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="container">
             <h2>Contact Me</h2>
-            <p class="subheading">Get in touch</p>
+            <p class="subheading">Get in Touch</p>
             <div class="contact-container">
                 <div class="contact-info">
-                    <h3>Get in Touch</h3>
-                    <p>Feel free to reach out...</p>
                     <ul>
                         <li><strong>Name:</strong> Bamidele Samuel</li>
-                        <li><strong>Address:</strong> Lagos, Nigeria</li>
+                        <li><strong>Location:</strong> Lagos, Nigeria</li>
                         <li><strong>Email:</strong> samuelbamidele301@gmail.com</li>
                         <li><strong>Phone:</strong> +2348134523227</li>
                     </ul>
                 </div>
                 <form action="#" method="post" class="contact-form">
-                    <div class="input-group">
-                        <input type="text" placeholder="Name" name="name" required>
-                        <input type="email" placeholder="Email" name="email" required>
-                    </div>
+                    <input type="text" placeholder="Name" name="name" required>
+                    <input type="email" placeholder="Email" name="email" required>
                     <input type="text" placeholder="Subject" name="subject" required>
                     <textarea placeholder="Message" rows="5" name="message" required></textarea>
                     <button type="submit">Send Message</button>
                 </form>
             </div>
-            <div class="social-media">
-                <a href="https://wa.me/2348134523227" target="_blank" class="social-icon">
-                    <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="WhatsApp">
-                </a>
-                <a href="https://web.facebook.com/SAMTECH.hub.01" target="_blank" class="social-icon">
-                    <img src="https://img.icons8.com/color/48/000000/facebook-new.png" alt="Facebook">
-                </a>
-                <a href="https://www.linkedin.com/in/bamidele-samuel-3a7812259/" target="_blank" class="social-icon">
-                    <img src="https://img.icons8.com/color/48/000000/linkedin.png" alt="LinkedIn">
-                </a>
-                <a href="https://www.instagram.com/bamidele953/" target="_blank" class="social-icon">
-                    <img src="https://img.icons8.com/color/48/000000/instagram.png" alt="LinkedIn">
-                </a>
-            </div>
+        </div>
     </section>
 
     <!-- Footer -->
     <footer id="site-footer">
         <p>&copy; <span id="currentYear"></span> SAMTECH. All Rights Reserved.</p>
     </footer>
-     <!-- Link to JavaScript -->
-     <script src="{% static 'js/script.js' %}"></script>
+     
+    <!-- JavaScript -->
+    <script src="{% static 'js/script.js' %}"></script>
     <script>
-        const year = new Date().getFullYear();
-        document.getElementById('currentYear').textContent = year;
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
     </script>
 </body>
 </html>

@@ -25,9 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-hp-lcw!#bzd6z&mfe6$f!d@wzljs-g20w_oql#r5@zhpsx9$up'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['samtec.onrender.com', 'www.samtech.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost','samtec.onrender.com', 'www.samtech.com']
 
 
 
@@ -80,8 +80,12 @@ WSGI_APPLICATION = 'portfolio_project.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',  # This creates an SQLite file in your project directory
+    }
 }
+
 
 
 # Password validation
