@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-hp-lcw!#bzd6z&mfe6$f!d@wzljs-g20w_oql#r5@zhpsx9$up'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['samtec.onrender.com', 'www.samtech.com']
 
